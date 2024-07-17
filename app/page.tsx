@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import { PlusIcon } from "@heroicons/react/24/solid";
+import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
 import RiverIcon from "./assets/river.png"
 import WaterfallIcon from "./assets/waterfall.png"
 
@@ -12,7 +12,13 @@ export default function Home() {
   const [goalAchieved, setGoalAchieved] = useState(false);
 
   const handleAddClick = () => {
-    setCount(count + 1);
+    setCount(prev => prev + 1);
+  }
+
+  const handleSubtractClick = () => {
+    if (count > 0) {
+      setCount(prev => prev - 1);
+    }
   }
 
   useEffect(() => {
@@ -24,11 +30,20 @@ export default function Home() {
     }
   }, [count]);
 
+  useEffect(() => {
+    if (goalAchieved) {
+      setFlow(1);
+    }
+    else {
+      setFlow(0);
+    }
+  }, [goalAchieved]);
+
 
   return (
     <div data-theme="dark">
-      <div className="flex flex-col gap-6 items-center justify-center h-[100dvh] w-screen">
-        <div className="absolute top-0 flex justify-between w-screen px-4 py-2">
+      <div className="flex flex-col gap-6 items-center justify-center h-[100dvh] w-screen ">
+        <div className="absolute top-0 flex justify-between w-screen px-4 py-4">
         <button className="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -42,9 +57,11 @@ export default function Home() {
               d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
           </svg>
         </button>
-          <div className="flex gap-2 items-center justify-center">
-            <Image src={WaterfallIcon} alt="Icon of a river" height={32} width={32}/>
-            <div className="stat-value text-xl font-semibold">{flow}</div>
+          <div className="card bg-white bg-opacity-10 shadow-xl ">
+            <div className="card-body flex flex-row gap-2 items-center justify-center p-4">
+              <Image className={!goalAchieved ? "grayscale" : ""} src={WaterfallIcon} alt="Icon of a river" height={32} width={32}/>
+              <div className="stat-value text-xl font-semibold">{flow}</div>
+            </div>
           </div>
         </div>
       <div className="stats shadow">
@@ -54,6 +71,7 @@ export default function Home() {
         </div>
       </div>
         <button onClick={handleAddClick} className="btn btn-primary btn-circle h-48 w-48"><PlusIcon height={80} width={80} /></button>
+        <button onClick={handleSubtractClick} className="btn btn-outline btn-circle h-12 w-12"><MinusIcon height={20} width={20} /></button>
       </div>
       
       <footer className="footer footer-center bg-base-300 text-base-content p-4 bottom-0 absolute">
