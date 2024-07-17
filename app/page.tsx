@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <div data-theme="dark">
-      <div className="flex flex-col gap-6 items-center justify-center h-screen w-screen">
+      <div className="flex flex-col gap-6 items-center justify-center h-[100dvh] w-screen">
         <div className="absolute top-0 flex justify-between w-screen px-4 py-2">
         <button className="btn btn-square btn-ghost">
           <svg
