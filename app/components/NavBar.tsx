@@ -60,7 +60,7 @@ const NavBar = ({
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="menu bg-base-200 flex flex-col items-center justify-around py-12 lg:py-24 text-base-content min-h-full w-screen p-4">
+        <div className="menu bg-base-200 flex flex-col items-center justify-around py-12 lg:py-24 text-base-content min-h-full w-screen md:w-96 p-4">
           {/* Sidebar content here */}
           <label
             htmlFor="my-drawer"
@@ -69,7 +69,7 @@ const NavBar = ({
             <XMarkIcon height={36} width={36} />
           </label>
           <div>
-            <h2 className="text-4xl font-bold text-center">
+            <h2 className="text-3xl font-bold text-center">
               Daily Istighfar App
             </h2>
           </div>
@@ -104,7 +104,7 @@ const NavBar = ({
               </div>
             </div>
           </div>
-          <div className="w-[85%] lg:w-3/5 text-center text-base lg:text-lg bg-base-300 p-4 rounded-lg">
+          <div className="w-[85%] text-center text-base lg:text-lg bg-base-300 p-4 rounded-lg">
             Ibn &apos; Abbas (May Allah be pleased with them) said: The Messenger of
             Allah (ﷺ) said, &ldquo;If anyone constantly seeks pardon (from Allah),
             Allah will appoint for him a way out of every distress and a relief

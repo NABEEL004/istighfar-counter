@@ -24,15 +24,17 @@ export default function Home() {
     if (localFlow) setFlow(parseInt(localFlow));
     if (localDailyGoal) setDailyGoal(parseInt(localDailyGoal));
 
-    const today = new Date().toISOString().split("T")[0];
+    const today = new Date();
+    const todayDate = today.toLocaleDateString();
 
     if (lastUpdated) {
-      if (lastUpdated !== today) {
+      const lastUpdatedDate = new Date(lastUpdated).toLocaleDateString();
+      if (lastUpdatedDate !== todayDate) {
         const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
-        const formattedYesterday = yesterday.toISOString().split("T")[0];
+        yesterday.setDate(today.getDate() - 1);
+        const formattedYesterday = yesterday.toLocaleDateString();
 
-        if (lastUpdated === formattedYesterday) {
+        if (lastUpdatedDate === formattedYesterday) {
           if (
             localCount &&
             localDailyGoal &&
@@ -46,9 +48,11 @@ export default function Home() {
           }
           setCount(0);
           localStorage.setItem("count", "0");
-          localStorage.setItem("lastUpdated", today);
         }
+        localStorage.setItem("lastUpdated", today.toISOString());
       }
+    } else {
+      localStorage.setItem("lastUpdated", today.toISOString());
     }
   }, []);
 
