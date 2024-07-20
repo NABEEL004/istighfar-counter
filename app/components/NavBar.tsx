@@ -105,11 +105,11 @@ const NavBar = ({
             </div>
           </div>
           <div className="w-4/5 text-center text-lg bg-base-300 p-4 rounded-lg">
-            Ibn 'Abbas (May Allah be pleased with them) said: The Messenger of
-            Allah (ﷺ) said, "If anyone constantly seeks pardon (from Allah),
+            Ibn &apos; Abbas (May Allah be pleased with them) said: The Messenger of
+            Allah (ﷺ) said, &ldquo; If anyone constantly seeks pardon (from Allah),
             Allah will appoint for him a way out of every distress and a relief
             from every anxiety, and will provide sustenance for him from where
-            he expects not." <br /> <br />
+            he expects not. &rdwuo; <br /> <br />
             [Abu Dawud].
           </div>
         </div>
