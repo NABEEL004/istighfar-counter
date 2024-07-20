@@ -82,10 +82,11 @@ const NavBar = ({
                     type="radio"
                     name="options"
                     aria-label={number.toString()}
-                    defaultChecked={dailyGoal === number}
+                    checked={dailyGoal === number}
                     onClick={() => {
                       handleInputClick(number);
                     }}
+                    onChange={() => {}}
                   />
                 </label>
               ))}
