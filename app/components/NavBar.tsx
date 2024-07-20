@@ -60,39 +60,59 @@ const NavBar = ({
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu bg-base-200 flex flex-col items-center justify-center gap-3 text-base-content min-h-full w-screen p-4">
+        <div className="menu bg-base-200 flex flex-col items-center justify-around py-24 text-base-content min-h-full w-screen p-4">
           {/* Sidebar content here */}
           <label
             htmlFor="my-drawer"
-            className="drawer-button text-3xl font-thin absolute top-4 right-4"
+            className="drawer-button text-3xl font-thin absolute top-4 right-4 cursor-pointer"
           >
             <XMarkIcon height={36} width={36} />
           </label>
-          <li className="text-2xl font-medium">Daily Goal</li>
-          <li>
-            <div className="join gap-0 active:bg-transparent m-0 p-0">
-              {DailyNumbers.map((number) => (
-                <label
-                  key={number}
-                  className="drawer-button"
-                  htmlFor="my-drawer"
-                >
-                  <input
-                    className="join-item btn btn-outline w-24 bg-base-100"
-                    type="radio"
-                    name="options"
-                    aria-label={number.toString()}
-                    checked={dailyGoal === number}
-                    onClick={() => {
-                      handleInputClick(number);
-                    }}
-                    onChange={() => {}}
-                  />
-                </label>
-              ))}
+          <div>
+            <h2 className="text-4xl font-bold text-center">
+              Daily Istighfar App
+            </h2>
+          </div>
+          <div className="flex flex-col gap-4 items-center m-0 p-0">
+            <h2 className="text-2xl font-medium hover:bg-transparent active:bg-transparent">
+              Daily Goal
+            </h2>
+            <div className="w-4/5 text-center">
+              Set a daily goal by choosing one of the options below:
             </div>
-          </li>
-        </ul>
+            <div>
+              <div className="join gap-0 m-0 p-0">
+                {DailyNumbers.map((number) => (
+                  <label
+                    key={number}
+                    className="drawer-button"
+                    htmlFor="my-drawer"
+                  >
+                    <input
+                      className="join-item btn btn-outline w-24 bg-base-100"
+                      type="radio"
+                      name="options"
+                      aria-label={number.toString()}
+                      checked={dailyGoal === number}
+                      onClick={() => {
+                        handleInputClick(number);
+                      }}
+                      onChange={() => {}}
+                    />
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="w-4/5 text-center text-lg bg-base-300 p-4 rounded-lg">
+            Ibn 'Abbas (May Allah be pleased with them) said: The Messenger of
+            Allah (ﷺ) said, "If anyone constantly seeks pardon (from Allah),
+            Allah will appoint for him a way out of every distress and a relief
+            from every anxiety, and will provide sustenance for him from where
+            he expects not." <br /> <br />
+            [Abu Dawud].
+          </div>
+        </div>
       </div>
       <div className="card bg-white bg-opacity-10 shadow-xl ">
         <div className="card-body flex flex-row gap-2 items-center justify-center p-4">
